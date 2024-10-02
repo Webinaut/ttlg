@@ -1,7 +1,49 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import researchimage from "/assets/images/undraw_people_search_re_5rre.svg";
+import ContactForm from "../components/ContactFormNetlify.astro";
 const pageTitle = "Through The Looking Glass";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
+  <div class="container">
+    <article>
+      <div class="grid">
+        <div>
+          <Image src={researchimage} alt="first image" />
+        </div>
+        <div>
+          <p>text</p>
+        </div>
+      </div>
+    </article>
+    <article>
+      <div class="grid">
+        <div>
+          <p>text second</p>
+        </div>
+        <div>
+          <Image src={researchimage} alt="first image" />
+        </div>
+      </div>
+    </article>
+    <h2>Get In Touch</h2>
+    <p style="text-align: center">
+      I would love to hear from you. Just complete the form below and I shall
+      get back to you as soon as I can.
+    </p>
+    <article>
+      <ContactForm />
+    </article>
+  </div>
 </BaseLayout>
+
+<style lang="scss">
+  .container {
+    background-color: var(--pico-primary);
+  }
+  h2 {
+    text-align: center;
+  }
+</style>

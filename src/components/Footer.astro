@@ -1,0 +1,22 @@
+---
+const year = new Date();
+---
+
+<div class="container">
+  <footer>
+    &copy; Through The Looking Glass 2024 - <span id="footer-year"
+      >{year.getFullYear()}</span
+    > | Illustration(s) from <a href="https://absurd.design/">absurd.design</a>
+  </footer>
+</div>
+<style lang="scss">
+  footer {
+    border-top: 1px solid #bababa;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    text-align: center;
+    & a {
+      text-decoration: none;
+    }
+  }
+</style>
