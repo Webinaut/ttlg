@@ -1,7 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
-import researchimage from "/assets/images/undraw_people_search_re_5rre.svg";
+import researchimage from "/assets/images/absurd.design - Chapter 1 - 11.png";
+import planningimage from "/assets/images/absurd.design - Chapter 1 - 08.png";
 import ContactForm from "../components/ContactFormNetlify.astro";
 const pageTitle = "Through The Looking Glass";
 ---
@@ -9,29 +10,59 @@ const pageTitle = "Through The Looking Glass";
 <BaseLayout pageTitle={pageTitle}>
   <div class="container">
     <article>
-      <div class="grid">
+      <p>Hi, I'm Viv, founder of Through The Looking Glass (TTLG).</p>
+      <p>
+        TTLG is an independent Strategy and Research Agency. Our experience
+        spans decades in both communication and research agencies. We help to
+        create brands that simply and significantly make a difference.
+      </p>
+    </article>
+    <article>
+      <div class="grid" id="research">
         <div>
           <Image src={researchimage} alt="first image" />
         </div>
         <div>
-          <p>text</p>
+          <h2>Qualitative Research</h2>
+          <p>
+            Our driving passion is to understand what makes people tick. To
+            really understand what unites us, what sets us apart and how that
+            impacts the communication we respond to.
+          </p>
+          <p>
+            We also know where and how to source insights, filter out what’s
+            important, make sense of what we have learnt and help apply what’s
+            essential.
+          </p>
         </div>
       </div>
     </article>
     <article>
-      <div class="grid">
-        <div>
-          <p>text second</p>
+      <div class="grid" id="planning">
+        <div class="fp-2">
+          <h2>Strategic Planning</h2>
+          <p>
+            Everything we do has an element of strategy. We can’t help
+            ourselves.
+          </p>
+          <p>
+            We specialise in brand positioning, brand repositioning, brand
+            architecture and brand creation. All things related to brands.
+          </p>
+          <p>
+            Planning tools are an important part of the process, but brand
+            issues are bespoke, and therefore handled accordingly.
+          </p>
         </div>
-        <div>
-          <Image src={researchimage} alt="first image" />
+        <div class="fp-1">
+          <Image src={planningimage} alt="first image" />
         </div>
       </div>
     </article>
-    <h2>Get In Touch</h2>
+    <h2 id="contact">Get In Touch</h2>
     <p style="text-align: center">
-      I would love to hear from you. Just complete the form below and I shall
-      get back to you as soon as I can.
+      We would love to hear from you. Just complete the form below and we shall
+      get back to you as soon as we can.
     </p>
     <article>
       <ContactForm />
@@ -40,10 +71,22 @@ const pageTitle = "Through The Looking Glass";
 </BaseLayout>
 
 <style lang="scss">
-  .container {
-    background-color: var(--pico-primary);
-  }
-  h2 {
+  // .container-fluid {
+  //   background-color: var(--pico-primary);
+  // }
+
+  #contact {
     text-align: center;
+  }
+  html {
+    scroll-padding-top: 3rem;
+  }
+  @media only screen and (max-width: 768px) {
+    .fp-1 {
+      order: 1;
+    }
+    .fp-2 {
+      order: 2;
+    }
   }
 </style>

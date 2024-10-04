@@ -4,9 +4,13 @@ const year = new Date();
 
 <div class="container">
   <footer>
-    &copy; Through The Looking Glass 2024 - <span id="footer-year"
+    &copy; Through The Looking Glass 2012 - <span id="footer-year"
       >{year.getFullYear()}</span
-    > | Illustration(s) from <a href="https://absurd.design/">absurd.design</a>
+    > · Illustrations: <a href="https://absurd.design/" target="_blank"
+      >absurd.design</a
+    > · Design: <a href="https://onestopsites.net.au/" target="_blank"
+      >One Stop Sites</a
+    >
   </footer>
 </div>
 <style lang="scss">
@@ -17,6 +21,10 @@ const year = new Date();
     text-align: center;
     & a {
       text-decoration: none;
+      color: var(--pico-primary-inverse);
+      &:hover {
+        color: var(--pico-primary-hover);
+      }
     }
   }
 </style>

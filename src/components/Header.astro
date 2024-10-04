@@ -1,58 +1,180 @@
 ---
-import { Image } from "astro:assets";
-import vivimage from "/assets/images/VivRowdenRound.png";
-import Frame from "../components/LookingGlass.astro";
-// const { pageTitle } = Astro.props;
+// import { Image } from "astro:assets";
+// y// import vivimage from "/assets/images/VivRowdenTTLG.png";
+// import Frame from "../components/LookingGlass.astro";
+import HomeIcon from "../components/CarbonHome.astro";
 ---
 
-<header>
-  <div class="hero-grid">
-    <h1 class="hero1">through the</h1>
-    <div class="vivpic">
-      <Frame />
-      <Image src={vivimage} alt="Viv Rowden" />
-    </div>
-    <h1 class="hero2">looking glass</h1>
+<div id="home"></div>
+<div class="container-fluid navigation">
+  <div class="hamburger">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
   </div>
-</header>
+
+  <div class="main-nav">
+    <nav>
+      <ul>
+        <li>
+          <a href="#home"><HomeIcon /></a>
+        </li>
+        <li>
+          <a href="#research">Research</a>
+        </li>
+        <li>
+          <a href="#planning">Planning</a>
+        </li>
+        <li>
+          <a href="#contact">Contact Me</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<!-- <Frame />
+  <Image src={vivimage} alt="Viv Rowden" />
+</div> -->
+<div class="container-fluid">
+  <h1 class="hero1">through the</h1>
+</div>
+<div class="container-fluid">
+  <h1 class="hero2">looking glass</h1>
+</div>
+
 <style lang="scss">
-  @import "../styles/_style.scss";
-  header {
-    max-width: 100vw;
-    padding-top: 0;
-  }
-  .hero-grid {
+  .container-fluid {
     background-color: var(--pico-primary-background);
-    padding: 0 5% 8rem;
-    overflow: hidden;
-    display: grid;
-    grid-template-columns: repeat(6, minmax(250px, 1fr));
-    /* grid-template-columns: repeat(6, 1fr); */
-    grid-template-rows: repeat(2, 18rem);
   }
+  .main-nav {
+    background-color: transparent;
+  }
+
   .hero1 {
-    grid-area: 1/2/1/5;
-
-    // grid-row: 2/3;
-    // grid-column: 1/5;
-  }
-  .hero2 {
-    grid-area: 2/3/1/5;
-
-    // grid-row: 3/4;
-    // grid-column: 1/5;
-  }
-  .vivpic {
-    grid-area: 1/3/3/4;
-    > img {
-      max-width: 100%;
-      height: auto;
+    margin-bottom: 0;
+    opacity: 0;
+    animation: fadeIn 5s 1s ease-in-out forwards;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
     }
   }
+  .hero2 {
+    margin-top: 0;
+    opacity: 0;
+    animation: fadeIn 5s 2.5s ease-in-out forwards;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+  .vivpic {
+  }
   h1 {
-    font-size: 16rem;
+    font-size: 14vw;
     text-transform: lowercase;
-    /* max-width: 80%; */
-    /* overflow-wrap: break-word; */
+  }
+  #home {
+    background-color: var(--pico-primary-background);
+  }
+  .container-fluid.main-nav {
+    justify-content: flex-end;
+  }
+  .container-fluid.navigation {
+    display: flex;
+    justify-content: flex-end;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: transparent;
+  }
+  .main-nav {
+    > nav {
+      display: flex;
+      background-color: var(--pico-primary);
+    }
+    & ul {
+      // display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0.5rem 0 0 0.5rem;
+    }
+  }
+  .main-nav ul li {
+    list-style-type: none;
+    & a:where(a:not([role="button"])) {
+      color: var(--pico-primary-inverse);
+      &:hover {
+        cursor: pointer;
+        color: var(--pico-text-selection-color);
+      }
+    }
+  }
+  /*
+    * Just a quick hamburger
+    */
+
+  // .top-bar {
+  //   margin: 1em 1em 1em 0;
+  // }
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  .expanded {
+    display: unset;
+  }
+  .hamburger.expanded .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.expanded .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+  .hamburger.expanded .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .bar {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    background: var(--pico-primary-inverse);
+    border-radius: 3px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+
+  .main-nav {
+    display: none;
+  }
+  .main-nav.expanded {
+    z-index: 1;
+    background: var(--pico-primary);
+    padding: 0.5em;
+    border: solid var(--pico-primary-inverse);
+    border-width: 2px 0 0 0;
+    box-shadow: 0px 4px 10px -2px rgba(0, 0, 0, 0.1);
+    display: block;
+    position: absolute;
+    top: 75px;
   }
 </style>
+<script>
+  // Toggle Hamburger Menu
+  document.querySelector(".hamburger").addEventListener("click", () => {
+    document.querySelector(".main-nav").classList.toggle("expanded");
+    document.querySelector(".hamburger").classList.toggle("expanded");
+  });
+</script>
