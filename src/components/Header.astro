@@ -1,7 +1,4 @@
 ---
-// import { Image } from "astro:assets";
-// y// import vivimage from "/assets/images/VivRowdenTTLG.png";
-// import Frame from "../components/LookingGlass.astro";
 import HomeIcon from "../components/CarbonHome.astro";
 ---
 
@@ -33,28 +30,44 @@ import HomeIcon from "../components/CarbonHome.astro";
   </div>
 </div>
 
-<!-- <Frame />
-  <Image src={vivimage} alt="Viv Rowden" />
-</div> -->
-<div class="container-fluid">
-  <h1 class="hero1">through the</h1>
-</div>
-<div class="container-fluid">
-  <h1 class="hero2">looking glass</h1>
+<div class="container-fluid header-grid">
+  <div class="hero1">
+    <h1>through the</h1>
+  </div>
+  <div class="hero2">
+    <h1>looking glass</h1>
+  </div>
+  <div class="image_bottom">
+    <img src="../../assets/images/TTLGMirror.png" alt="Mirror" />
+  </div>
+  <div class="image_top">
+    <img src="../../assets/images/VivTTLG.png" alt="Mirror Overlay" />
+  </div>
 </div>
 
 <style lang="scss">
   .container-fluid {
     background-color: var(--pico-primary-background);
+    &.header-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: minmax(10px, auto);
+      grid-gap: 5px;
+    }
   }
   .main-nav {
     background-color: transparent;
   }
-
+  h1 {
+    font-size: 11vw;
+    text-transform: lowercase;
+    margin: 0;
+  }
   .hero1 {
-    margin-bottom: 0;
+    grid-area: 2 / 1 / 3 / span 12;
+    z-index: 3;
     opacity: 0;
-    animation: fadeIn 5s 1s ease-in-out forwards;
+    animation: fadeIn 3s 1s ease-in-out forwards;
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -65,9 +78,10 @@ import HomeIcon from "../components/CarbonHome.astro";
     }
   }
   .hero2 {
-    margin-top: 0;
+    grid-area: 3 / 1 / 4 / span 12;
+    z-index: 4;
     opacity: 0;
-    animation: fadeIn 5s 2.5s ease-in-out forwards;
+    animation: fadeIn 3s 2.5s ease-in-out forwards;
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -77,12 +91,27 @@ import HomeIcon from "../components/CarbonHome.astro";
       }
     }
   }
-  .vivpic {
+  .image_bottom {
+    z-index: 5;
+    grid-area: 1 / 9 / span 3 / span 4;
+    width: 90%;
   }
-  h1 {
-    font-size: 14vw;
-    text-transform: lowercase;
+  .image_top {
+    z-index: 6;
+    grid-area: 1 / 9 / span 3 / span 4;
+    width: 90%;
+    opacity: 0;
+    animation: fadeIn 3s 3.5s ease-in-out forwards;
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
   }
+
   #home {
     background-color: var(--pico-primary-background);
   }
@@ -121,13 +150,6 @@ import HomeIcon from "../components/CarbonHome.astro";
       }
     }
   }
-  /*
-    * Just a quick hamburger
-    */
-
-  // .top-bar {
-  //   margin: 1em 1em 1em 0;
-  // }
   .hamburger {
     display: block;
     cursor: pointer;

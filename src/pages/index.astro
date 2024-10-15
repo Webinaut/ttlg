@@ -10,12 +10,18 @@ const pageTitle = "Through The Looking Glass";
 <BaseLayout pageTitle={pageTitle}>
   <div class="container">
     <article>
-      <p>Hi, I'm Viv, founder of Through The Looking Glass (TTLG).</p>
-      <p>
-        TTLG is an independent Strategy and Research Agency. Our experience
-        spans decades in both communication and research agencies. We help to
-        create brands that simply and significantly make a difference.
-      </p>
+      <div class="intro">
+        <p>Hi, I'm Viv, founder of Through The Looking Glass (TTLG).</p>
+        <p>
+          TTLG is an independent Strategy and Research Agency based in Sydney,
+          Australia. It was founded on my experience in communication and
+          research agencies in the U.S.A. and Australia.
+        </p>
+        <p>
+          We help to create brands that simply and significantly make a
+          difference.
+        </p>
+      </div>
     </article>
     <article>
       <div class="grid" id="research">
@@ -71,10 +77,9 @@ const pageTitle = "Through The Looking Glass";
 </BaseLayout>
 
 <style lang="scss">
-  // .container-fluid {
-  //   background-color: var(--pico-primary);
-  // }
-
+  .intro {
+    font-size: 1.25rem;
+  }
   #contact {
     text-align: center;
   }
