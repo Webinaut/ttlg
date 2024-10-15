@@ -1,4 +1,7 @@
 ---
+import { Image } from "astro:assets";
+import mirror from "/assets/images/TTLGMirror.png";
+import vivpic from "/assets/images/VivTTLG.png";
 import HomeIcon from "../components/CarbonHome.astro";
 ---
 
@@ -38,10 +41,10 @@ import HomeIcon from "../components/CarbonHome.astro";
     <h1>looking glass</h1>
   </div>
   <div class="image_bottom">
-    <img src="../../assets/images/TTLGMirror.png" alt="Mirror" />
+    <Image src={mirror} alt="Mirror" />
   </div>
   <div class="image_top">
-    <img src="../../assets/images/VivTTLG.png" alt="Mirror Overlay" />
+    <Image src={vivpic} alt="Mirror Overlay" />
   </div>
 </div>
 
