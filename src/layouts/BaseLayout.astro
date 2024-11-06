@@ -12,8 +12,22 @@ const { pageTitle } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/LookingGlass.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{pageTitle}</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z9TM8FE9F5"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-Z9TM8FE9F5");
+    </script>
   </head>
+
   <body>
     <Header pageTitle={pageTitle} />
     <slot />
