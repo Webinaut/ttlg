@@ -39,9 +39,6 @@ import HomeIcon from "../components/CarbonHome.astro";
   <div class="hero2">
     <h1>looking glass</h1>
   </div>
-  <!-- <div class="image_bottom">
-    <Image src={mirror} alt="Mirror" />
-  </div> -->
   <div class="image_top">
     <Image src={vivpic} alt="Vivian Rowden" />
   </div>
@@ -49,7 +46,6 @@ import HomeIcon from "../components/CarbonHome.astro";
 
 <style lang="scss">
   .container-fluid {
-    // background-color: var(--pico-primary-background);
     &.header-grid {
       display: grid;
       grid-template-columns: repeat(12, 1fr);
@@ -59,7 +55,7 @@ import HomeIcon from "../components/CarbonHome.astro";
       background-size: cover;
       background-position: 0px 800px;
       padding: 20px 0 0 20px;
-      animation: slideUp 2s 3s ease-in-out forwards;
+      animation: slideUp 2s 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
       @keyframes slideUp {
         0% {
           background-position: 0px 800px;
@@ -76,16 +72,14 @@ import HomeIcon from "../components/CarbonHome.astro";
   h1 {
     font-size: 12vw;
     line-height: 0.9em;
-    // color: var(--pico-text-selection-color);
     text-transform: lowercase;
     margin: 0;
-    // color: #fff;
   }
   .hero1 {
     grid-area: 2 / 1 / 3 / span 12;
     margin-left: 1em;
     opacity: 0;
-    animation: fadeIn 2s 1s ease-in-out forwards;
+    animation: fadeIn 1s 1s ease-in-out forwards;
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -96,7 +90,8 @@ import HomeIcon from "../components/CarbonHome.astro";
     }
     & h1 {
       z-index: 3;
-      animation: colorChange 0.5s 7s linear forwards;
+      animation: colorChange 0.5s 6.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+        forwards;
       @keyframes colorChange {
         0% {
         }
@@ -112,7 +107,7 @@ import HomeIcon from "../components/CarbonHome.astro";
     margin-bottom: 1em;
     z-index: 4;
     opacity: 0;
-    animation: fadeIn 2s 2.5s ease-in-out forwards;
+    animation: fadeIn 1s 2.5s ease-in-out forwards;
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -123,7 +118,8 @@ import HomeIcon from "../components/CarbonHome.astro";
     }
     & h1 {
       z-index: 3;
-      animation: colorChange 0.5s 7s linear forwards;
+      animation: colorChange 0.5s 6.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+        forwards;
       @keyframes colorChange {
         0% {
         }
@@ -140,12 +136,10 @@ import HomeIcon from "../components/CarbonHome.astro";
       width: 100%;
       z-index: 5;
     }
-    // z-index: 6;
     grid-area: 1 / 9 / span 3 / span 4;
-    // width: 90%;
     justify-self: end;
     opacity: 0;
-    animation: fadeIn 3s 5s ease-in-out forwards;
+    animation: fadeIn 2s 5s ease-in-out forwards;
     @keyframes fadeIn {
       0% {
         opacity: 0;
@@ -155,11 +149,6 @@ import HomeIcon from "../components/CarbonHome.astro";
       }
     }
   }
-
-  // #home {
-  //   // background-color: var(--pico-primary-background);
-  //   background-image: url(../../assets/images/MirrorBackground.jpeg);
-  // }
   .container-fluid.main-nav {
     justify-content: flex-start;
   }
@@ -177,7 +166,6 @@ import HomeIcon from "../components/CarbonHome.astro";
       background-color: var(--pico-primary);
     }
     & ul {
-      // display: block;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
