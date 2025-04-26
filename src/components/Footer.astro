@@ -1,12 +1,11 @@
 ---
-const year = new Date();
+const year = new Date().getFullYear();
 ---
 
 <div class="container">
   <footer>
-    &copy; Through The Looking Glass 2012 - <span id="footer-year"
-      >{year.getFullYear()}</span
-    > · Illustrations: <a href="https://absurd.design/" target="_blank"
+    &copy; Through The Looking Glass 2012 - <span id="footer-year">{year}</span>
+    · Illustrations: <a href="https://absurd.design/" target="_blank"
       >absurd.design</a
     > · Design: <a href="https://onestopsites.net.au/" target="_blank"
       >One Stop Sites</a
@@ -28,3 +27,6 @@ const year = new Date();
     }
   }
 </style>
+<script is:inline>
+  document.getElementById("footer-year").innerText = new Date().getFullYear();
+</script>
