@@ -14,3 +14,27 @@
   // --pico-primary-inverse: #f5f5f5;
   --pico-muted-border-color: var(--pico-primary-hover);
 }
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]),
+  :host:not([data-theme]) {
+    --pico-color: var(--pico-primary);
+    // --pico-color: #373c44;
+    // --pico-primary-inverse: #fff;
+    // --pico-h1-color: var(--pico-primary-inverse);
+    --pico-submenu-color: var(--pico-color);
+    .grid img {
+      background-color: var(--pico-primary);
+    }
+  }
+}
+/* Enabled if forced with data-theme="dark" */
+[data-theme="dark"] {
+  --pico-color: var(--pico-primary);
+  // --pico-color: #373c44;
+  // --pico-primary-inverse: #fff;
+  // --pico-h1-color: var(--pico-primary-inverse);
+  .grid img {
+    background-color: var(--pico-primary);
+  }
+}
